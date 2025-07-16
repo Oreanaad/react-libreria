@@ -1,0 +1,63 @@
+
+
+.List-container-Perfil { 
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 40px auto 30px auto; 
+    padding: 0 20px; /* Mantén el padding para el contenido interno */ 
+    box-sizing: border-box; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: var(--blur); 
+    overflow: hidden; 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+    position: relative; 
+    min-height: 100px; 
+
+} 
+
+.List-container-Perfil p { 
+    flex: 2; /* Le da más peso al párrafo */ 
+    max-width: 100%; /* Ancho máximo para el párrafo en escritorio */ 
+    min-width: 350px; /* Ancho mínimo antes de que el flexbox lo reajuste */ 
+
+    text-align: justify; 
+
+    font-family: 'Lora', Georgia, serif; 
+    font-size: 1.15em; 
+    line-height: 1.8; 
+    color: #444; 
+    margin-right: 10px; /* Reinicia márgenes por defecto */ 
+    box-sizing: border-box; 
+} 
+
+.p-title-perfil{
+    font-size: 15em;
+    display: flex;
+    justify-content: center;
+}
+
+.section-perfil-container{
+      display: flex;
+      flex-direction: column;
+}
+
+.button-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 20px; 
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.Button-perfil{
+
+    margin: 0; 
+    margin-top: 39px; 
+}

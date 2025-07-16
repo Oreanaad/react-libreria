@@ -1,0 +1,203 @@
+/* -- Variables de Color y Sombra (opcional, pero buena práctica) -- */
+:root {
+    --wishlist-bg-color: #e6e0d3; /* Color de fondo similar al de la imagen */
+    --wishlist-text-color: #333;
+    --wishlist-border-color: #ccc;
+    --wishlist-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --wishlist-close-button-bg: #c00;
+    --wishlist-close-button-color: white;
+    --wishlist-item-border: 1px dashed #bbb; /* Para la línea punteada entre ítems */
+}
+
+/* ------------------------------------- */
+/* --- Contenedor Principal (Overlay) --- */
+/* ------------------------------------- */
+.wishlist-overlay {
+    position: fixed; /* Fija el overlay en la ventana */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    align-items: flex-start; /* Alinea el contenido arriba */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/* ------------------------------------ */
+/* --- Contenedor del Contenido (El cuadro flotante) --- */
+/* ------------------------------------ */
+.wishlist-content {
+    background-color: var(--wishlist-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--wishlist-shadow);
+    width: 350px; /* Ancho similar al de tu imagen */
+    max-height: 90vh; 
+    overflow-y: auto; 
+    position: relative; 
+    margin-top: 15px;
+    margin-right: 15px; 
+    display: flex;
+    flex-direction: column;
+    color: var(--wishlist-text-color);
+
+    transform: translateX(0); 
+    transition: transform 0.3s ease-out;
+}
+
+
+.wishlist-content h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--wishlist-text-color);
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* Línea debajo del título */
+    padding-bottom: 10px;
+}
+
+/* ------------------------------------ */
+/* --- Botón de Cierre (la 'X') --- */
+/* ------------------------------------ */
+.wishlist-content .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--wishlist-text-color); /* Color del texto del botón */
+    padding: 5px;
+    line-height: 1; /* Para alinear bien la X */
+}
+
+.wishlist-content .close-button:hover {
+    color: var(--wishlist-close-button-bg); /* Un color de énfasis al pasar el ratón */
+}
+
+/* ------------------------------------ */
+/* --- Lista de Items Individuales --- */
+/* ------------------------------------ */
+.wishlist-items {
+    flex-grow: 1; /* Permite que ocupe el espacio disponible y el scroll */
+}
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: var(--wishlist-item-border); /* Línea punteada como en tu imagen */
+}
+
+.wishlist-item:last-child {
+    border-bottom: none; /* No hay borde en el último elemento */
+}
+
+.wishlist-item-image {
+    width: 60px; /* Tamaño de la imagen del producto */
+    height: 80px; /* Ajusta según tus imágenes */
+    object-fit: cover; /* Para que la imagen cubra el área sin distorsionarse */
+    margin-right: 15px;
+    border-radius: 4px; /* Ligero borde redondeado */
+}
+
+.wishlist-item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.wishlist-item-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: var(--wishlist-text-color);
+    line-height: 1.3; /* Para texto largo */
+}
+
+.wishlist-item-details p {
+    margin: 0;
+    font-size: 0.95em;
+    color: var(--wishlist-text-color);
+}
+
+.wishlist-item-details button {
+    background-color: transparent; /* Botón Quitar sin fondo */
+    color: var(--secundario); /* Color rojo para Quitar */
+    border: none;
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: fit-content; /* Ajusta el ancho al contenido */
+    margin-top: 5px;
+}
+
+.wishlist-item-details button:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------------ */
+/* --- Mensaje de lista vacía --- */
+/* ------------------------------------ */
+.wishlist-content p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ------------------------------------ */
+/* --- Botones Inferiores (opcional, si quieres "Ver Carrito" o "Finalizar Compra") --- */
+/* ------------------------------------ */
+.wishlist-actions {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre botones */
+}
+
+.wishlist-actions button {
+    display: block; /* Para que los botones ocupen todo el ancho */
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+/* Estilo para el botón principal (ej. "Ver Carrito") */
+.wishlist-actions .main-action-button {
+    background-color: #6a6a6a; /* Un color gris oscuro */
+    color: white;
+}
+
+.wishlist-actions .main-action-button:hover {
+    background-color: #555;
+}
+
+/* Estilo para el botón secundario (ej. "Finalizar Compra") */
+.wishlist-actions .secondary-action-button {
+    background-color: #b3a48e; /* Un color más claro, similar al del subtotal */
+    color: white;
+}
+
+.wishlist-actions .secondary-action-button:hover {
+    background-color: #a0907d;
+}
+
+/* ------------------------------------ */
+/* --- Responsive (para pantallas pequeñas) --- */
+/* ------------------------------------ */
+@media (max-width: 768px) {
+    .wishlist-content {
+        width: 90%; /* Más ancho en móviles */
+        margin: 10px auto; /* Centrado y con menos margen */
+        max-height: 95vh;
+    }
+}

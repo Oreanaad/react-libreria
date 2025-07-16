@@ -1,0 +1,207 @@
+/* Contenedor principal de la página de login */
+.login-page-container {
+    display: flex;
+
+    flex-direction: column; /* Apila el título y el formulario */
+    align-items: center; /* Centra horizontalmente el contenido */
+    justify-content: center;
+    min-height: calc(100vh - var(--header-height, 80px) - var(--footer-height, 100px)); /* Ajusta según tus headers/footers */
+  margin: 0;
+    background-color: #f9f9f9; /* Fondo claro para la página */
+    box-sizing: border-box;
+}
+
+
+/* Título de la página de login */
+.login-title {
+    font-size: 2.5em;
+    color: var(--primario);
+    margin-bottom: 40px; /* Más espacio debajo del título */
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.login-title-Big {
+    font-size: 4em;
+    margin: 0;
+    color: #333;
+    font-weight: 700;
+    font-style: bold;
+    text-align: center;
+}
+
+/* Contenedor del formulario (la "tarjeta") */
+.login-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para efecto de tarjeta */
+    width: 100%;
+    max-width: 450px; /* Ancho máximo para el formulario */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los elementos principales del formulario */
+}
+
+/* Estilos para el formulario en sí */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los grupos de input/label */
+}
+
+/* Contenedor de cada grupo de formulario (label + input) */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Apila label e input */
+
+}
+
+/* Estilos para las etiquetas (labels) */
+.form-group label {
+    font-size: 1.1em;
+    margin-bottom: 8px; /* Espacio entre el label y el input */
+    font-weight: 600;
+
+}
+
+/* Estilos para los campos de entrada (inputs) */
+.form-input { 
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Bordes redondeados para los inputs */
+    font-size: 1em;
+    background-color: white;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+.form-input:focus {
+    border-color: #e63946; /* Color de enfoque similar a tu marca */
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2); /* Sombra de enfoque */
+    outline: none; /* Elimina el contorno por defecto del navegador */
+}
+
+/* Estilos para el botón de iniciar sesión */
+.submit-button {
+    background-color: var(--primario); /* Color de tu marca */
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px; /* Espacio superior */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box;
+}
+
+.submit-button:hover {
+    background-color: var(--sombra); /* Un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+.submit-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: translateY(0);
+}
+
+/* Estilos para los mensajes de éxito/error del formulario */
+.form-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95em;
+    text-align: center;
+    font-weight: 500;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Contenedor para los enlaces de "Registrarse" y "Olvidaste contraseña" */
+.form-links {
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los enlaces */
+}
+
+.form-links p {
+    margin: 0; /* Elimina el margen por defecto de los párrafos */
+}
+
+.link-text {
+    color: var(--secundario); /* Color de tu marca */
+    text-decoration: none; /* Sin subrayado por defecto */
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer; /* Indica que es clickeable */
+    transition: text-decoration 0.2s ease;
+}
+
+.link-text:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* --- Media Queries para Responsividad --- */
+
+@media (max-width: 600px) {
+    .login-title {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .login-card {
+        padding: 30px 20px; /* Reduce el padding en móviles */
+        margin: 0 15px; /* Margen en los lados para que no se pegue a los bordes */
+    }
+
+    .login-form {
+        gap: 15px;
+    }
+
+    .form-group label {
+        font-size: 1em;
+    }
+
+    .form-input,
+    .submit-button {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+
+    .form-links {
+        margin-top: 10px;
+        gap: 8px;
+    }
+
+    .link-text {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 400px) {
+    .login-title {
+        font-size: 1.8em;
+    }
+
+    .login-card {
+        padding: 25px 15px;
+    }
+}

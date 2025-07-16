@@ -1,0 +1,34 @@
+.main-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px; /* Aumentado el padding horizontal para pantallas grandes */
+    background-color: var(--secundario); /* Color de fondo del encabezado */
+    /* border-bottom: 1px solid #eee; */ /* <-- ¡ELIMINA ESTA LÍNEA! No es necesaria para un footer fijo en la parte inferior. */
+    width: 100%; /* Asegura que ocupe el 100% del ancho */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    /*position: fixed; /* Correcto, lo fija al viewport */
+    bottom: 0;       /* LO PEGA A LA PARTE INFERIOR */
+    /* top: 0; */    /* <-- ¡¡¡ELIMINA COMPLETAMENTE ESTA LÍNEA!!! Esta es la causa principal de que salga arriba. */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.footer-content-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.p-content{
+    margin: 0;
+}
+
+.links{
+    gap:20px;
+    padding: 10px;
+}

@@ -1,0 +1,270 @@
+/* src/Cart/CartSideBar.css */
+
+/* --- GENERALES / OVERLAY --- */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    display: flex;
+    justify-content: flex-end; /* Alinea el sidebar a la derecha */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/* --- CONTENIDO PRINCIPAL DEL SIDEBAR --- */
+.cart-sidebar-content {
+    background-color: var(--cartBG); 
+    width: 350px; /* Ancho fijo para el sidebar */
+    max-width: 90%; /* Máximo 90% del ancho de la pantalla en dispositivos pequeños */
+    height: 100%; /* ¡CRUCIAL! El sidebar ocupa el 100% de la altura del viewport */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    display: flex; /* Habilitar Flexbox */
+    flex-direction: column; /* Organiza los elementos hijos en columna */
+    padding: 20px;
+    box-sizing: border-box; /* Incluye padding en el ancho/alto */
+    animation: slideIn 0.3s ease-out forwards; /* Animación de entrada */
+    overflow: hidden; /* ¡CRUCIAL! Oculta cualquier desbordamiento del sidebar para que el scroll esté solo en el contenedor de ítems */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* --- HEADER DEL SIDEBAR --- */
+.sidebar-header {
+    flex-shrink: 0; /* Evita que el encabezado se encoja */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.close-sidebar-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #555;
+    padding: 0 5px;
+}
+
+.close-sidebar-button:hover {
+    color: #000;
+}
+
+.empty-cart-message {
+    text-align: center;
+    color: #777;
+    margin-top: 50px;
+    font-size: 1.1em;
+}
+
+/* --- CONTENEDOR DE ÍTEMS DEL CARRITO (SCROLLABLE) --- */
+.cart-items-container {
+    flex-grow: 1; /* ¡CRUCIAL! Permite que este contenedor ocupe todo el espacio vertical disponible */
+    overflow-y: auto; /* ¡CRUCIAL! Activa el scroll vertical si el contenido excede la altura */
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+    padding-right: 10px; /* Espacio para el scrollbar */
+    margin-right: -10px; /* Compensa el padding para que el scrollbar no empuje el contenido */
+}
+
+/* --- ESTILOS INDIVIDUALES DE ÍTEM --- */
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee; /* Línea divisoria */
+}
+
+.cart-item:last-child {
+    border-bottom: none; /* No hay línea divisoria en el último ítem */
+    padding-bottom: 0;
+}
+
+.item-image-wrapper {
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+    width: 80px; /* Ancho fijo para la imagen */
+    height: 100px; /* Alto fijo para la imagen */
+    margin-right: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden; /* Oculta partes de la imagen si se desborda */
+    display: flex; /* Para centrar la imagen */
+    justify-content: center;
+    align-items: center;
+}
+
+.item-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+}
+
+.item-details {
+    flex-grow: 1; /* Permite que los detalles ocupen el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.3;
+}
+
+.item-price-quantity, .item-subtotal {
+    margin: 0 0 8px 0;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.item-subtotal {
+    font-weight: bold;
+    color: #222;
+}
+
+/* --- Estilos para los controles de cantidad (botones + -) --- */
+.cart-item-quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio entre los botones y la cantidad */
+    margin-top: 5px;
+}
+
+.quantity-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 50%; /* Botones redondos */
+    width: 30px; /* Tamaño de los botones */
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em; /* Tamaño del icono */
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    color: #555;
+    padding: 0; /* Elimina padding interno del botón */
+}
+
+.quantity-btn:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+    color: #333;
+}
+
+.quantity-btn:active {
+    background-color: #d0d0d0;
+}
+
+.quantity-display {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+    min-width: 25px; /* Para que no se mueva si la cantidad cambia a dos dígitos */
+    text-align: center;
+}
+
+/* --- Estilo para el botón de eliminar ítem (basura) --- */
+.remove-item-button {
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-left: 10px; /* Espacio a la izquierda del botón de cantidad */
+    transition: background-color 0.2s ease;
+    padding: 0;
+}
+
+.remove-item-button:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el ratón */
+}
+
+/* Estilos para el resumen del carrito (total y botones inferiores) */
+.cart-summary {
+    flex-shrink: 0; /* Evita que el resumen se encoja */
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: right;
+    margin-top: auto; /* <--- ¡CAMBIO CRÍTICO AQUÍ! */
+}
+
+.cart-total {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+.clear-cart-button,
+.checkout-button {
+    display: block; /* Ocupan todo el ancho disponible */
+    width: 100%;
+    padding: 12px 20px; /* Make sure padding is consistent */
+    margin-top: 10px;
+    border: none; /* Ensure no extra border causes size difference */
+    border-radius: 5px;
+    font-size: 1.1em; /* Make sure font size is consistent */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+    text-decoration: none; /* Para el enlace */
+    box-sizing: border-box; /* Crucial for consistent width calculation */
+}
+
+.checkout-button {
+    background-color: var(--secundario); /* Verde para proceder al pago */
+    color: #fff;
+    /* You had border: none; here, which is good. */
+}
+
+.checkout-button:hover {
+    background-color: var(--sombra);
+    color: white;
+    transform: translateY(-1px); /* Efecto ligero al pasar el ratón */
+}
+
+.clear-cart-button {
+    background-color: #f8f9fa; /* Gris claro para vaciar carrito */
+    color: #6c757d;
+    border: 1px solid #ccc; /* This border will add to the size if box-sizing is not border-box */
+}
+
+.clear-cart-button:hover {
+    background-color: #e2e6ea;
+    color: #495057;
+    border-color: #b8b8b8;
+}
+
+/* Media Queries para responsividad (opcional) */
+@media (max-width: 600px) {
+    .cart-sidebar-content {
+        width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    }
+}

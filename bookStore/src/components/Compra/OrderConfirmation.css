@@ -1,0 +1,162 @@
+/* src/pages/OrderConfirmationPage/OrderConfirmationPage.css */
+
+/* Contenedor principal de la página de confirmación */
+.order-confirmation-container {
+    font-family: 'Georgia', serif; /* Fuente con serifa para un toque clásico y cálido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #f8f0e3; /* Tono beige/crema suave, como papel envejecido */
+    padding: 40px;
+    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
+}
+
+/* Contenido central de la confirmación */
+.confirmation-content {
+    background-color: #ffffff; /* Fondo blanco para el recuadro de contenido */
+    padding: 60px 40px; /* Más padding para un efecto más amplio */
+    border-radius: 12px; /* Bordes suavemente redondeados */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada para profundidad */
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    border: 1px solid #e0d8c9; /* Borde sutil para un toque más "análogo" */
+}
+
+/* Título principal de la confirmación */
+.order-confirmation-title {
+    color: #4a2c00; /* Marrón muy oscuro, casi negro, como tinta antigua */
+    font-size: 3em; /* Más grande para impacto */
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 0.05em; /* Ligeramente espaciado para elegancia */
+    text-transform: uppercase; /* Mayúsculas para un aspecto más formal */
+}
+
+/* Mensajes de texto de confirmación */
+.order-confirmation-container p {
+    color: #7a6c5d; /* Tono de marrón grisáceo, suave y legible */
+    font-size: 1.15em;
+    line-height: 1.8; /* Mayor interlineado para mejor lectura */
+    margin-bottom: 18px;
+}
+
+/* Número de pedido resaltado */
+.order-confirmation-container p strong {
+    font-weight: bold;
+    color: #8b5e3c; /* Un tono de marrón más cálido y distintivo */
+    font-size: 1.2em; /* Ligeramente más grande */
+}
+
+/* Contenedor del botón de WhatsApp */
+.whatsapp-button-container {
+    margin-top: 45px; /* Más espacio arriba */
+    margin-bottom: 35px; /* Más espacio abajo */
+}
+
+/* Botón de WhatsApp */
+.whatsapp-confirm-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 35px; /* Más padding para un botón más robusto */
+    background-color: #25d366; /* Verde vibrante de WhatsApp */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px; /* Bordes completamente redondeados (píldora) */
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 12px rgba(37, 211, 102, 0.3); /* Sombra que coincide con el color del botón */
+    border: 2px solid #1fa750; /* Borde sutil más oscuro */
+}
+
+.whatsapp-confirm-button:hover {
+    background-color: #1ea74d; /* Tono de verde ligeramente más oscuro al pasar el ratón */
+    transform: translateY(-3px); /* Efecto de "levantar" */
+}
+
+.whatsapp-confirm-button i {
+    margin-right: 12px; /* Más espacio entre el icono y el texto */
+    font-size: 1.5em; /* Icono más grande */
+}
+
+/* Botón "Volver a la tienda" */
+.back-to-home-button {
+    padding: 15px 30px; /* Padding ajustado */
+    background-color: #a98467; /* Tono de marrón más suave y terroso */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-home-button:hover {
+    background-color: #8b6b55; /* Tono de marrón ligeramente más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .order-confirmation-container {
+        padding: 20px;
+    }
+
+    .confirmation-content {
+        padding: 40px 20px;
+    }
+
+    .order-confirmation-title {
+        font-size: 2.2em;
+        margin-bottom: 25px;
+    }
+
+    .order-confirmation-container p {
+        font-size: 1em;
+        margin-bottom: 15px;
+    }
+
+    .whatsapp-confirm-button {
+        font-size: 1em;
+        padding: 15px 25px;
+    }
+
+    .back-to-home-button {
+        font-size: 0.9em;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-confirmation-container {
+        padding: 15px;
+    }
+    
+    .confirmation-content {
+        padding: 30px 15px;
+        border-radius: 8px;
+    }
+
+    .order-confirmation-title {
+        font-size: 1.8em;
+    }
+
+    .whatsapp-confirm-button {
+        font-size: 0.9em;
+        padding: 12px 20px;
+    }
+
+    .whatsapp-confirm-button i {
+        font-size: 1.2em;
+    }
+
+    .back-to-home-button {
+        font-size: 0.85em;
+        padding: 10px 20px;
+    }
+}

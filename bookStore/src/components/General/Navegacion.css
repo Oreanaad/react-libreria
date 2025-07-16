@@ -1,0 +1,94 @@
+/* --- ESTILOS PARA LA BARRA DE NAVEGACIÓN SECUNDARIA --- */
+.secondary-nav {
+    background-color: transparent;
+    padding: 10px 20px; /* Mantiene el padding que tenías */
+    display: flex; /* Mantiene el display flex */
+    width: 100%; /* Mantiene el 100% de ancho */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    position: relative;
+    z-index: 999;
+    color: var(--primario); /* Asegura el color del texto (asumiendo que var(--primario) es un color visible) */
+    border-bottom: 6px solid var(--primario);
+    margin-bottom: 0;
+    
+    /* ALINEACIÓN EN PANTALLAS GRANDES: Mantiene el contenido a la izquierda */
+    justify-content: flex-start;
+    
+}
+
+.secondary-nav a {
+    color: var(--primario);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding: 5px 0; /* Padding vertical para los enlaces */
+}
+
+.secondary-nav a:hover {
+    text-decoration: underline;
+    color: var(--secundario); /* Cambia el color al pasar el ratón */
+}
+
+/* --- CONTENEDOR DE ENLACES DENTRO DE LA NAVEGACIÓN SECUNDARIA (.nav_margin) --- */
+.nav_margin {
+    display: flex;
+    gap: 20px; /* Espacio entre los enlaces */
+    box-sizing: border-box;
+    /* Mantiene el margen izquierdo de 200px para pantallas grandes (según tu código anterior) */
+    margin-left: 200px; 
+}
+
+/* --- Media Queries para Responsividad (SOLO DE LA NAVEGACIÓN) --- */
+
+/* Para pantallas medianas (hasta 1024px) */
+@media (max-width: 1024px) {
+    /* Aquí puedes ajustar el margen izquierdo si quieres que se mueva antes */
+    .nav_margin {
+        gap: 15px; /* Reducir espacio entre enlaces */
+        margin-left: 50px; /* Ejemplo: se mueve más a la izquierda en pantallas medianas */
+    }
+    .secondary-nav a {
+        font-size: 0.95rem; /* Fuente un poco más pequeña */
+    }
+}
+
+/* Para pantallas pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    .secondary-nav {
+        /* NO flex-direction: column; para que los items sigan en fila */
+        justify-content: center; /* ¡CLAVE! Centra la barra de navegación horizontalmente */
+        align-items: center;    /* Centra si hay contenido de diferentes alturas */
+        padding: 10px 0; /* Quita el padding horizontal, el contenido ahora se centra */
+        max-width: 100%; /* Ocupa todo el ancho disponible */
+        overflow-x: auto; /* ¡MUY IMPORTANTE! Permite el scroll horizontal si los enlaces no caben */
+        -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+        white-space: nowrap; /* Asegura que los enlaces no se rompan en varias líneas */
+    }
+    .nav_margin {
+        /* NO flex-direction: column; para que los enlaces sigan en fila */
+        justify-content: center; /* Centra los enlaces dentro del .nav_margin */
+        align-items: center;    /* Centra si hay enlaces de diferentes alturas */
+        margin-left: 0;         /* Elimina el margen izquierdo fijo en móvil */
+        width: auto;            /* El ancho se ajusta al contenido (enlaces) */
+        gap: 10px;              /* Reduce el espacio entre enlaces para que quepan */
+        padding: 0 10px;        /* Añade un poco de padding lateral al grupo de enlaces */
+        flex-wrap: nowrap;      /* Asegura que los enlaces no se envuelvan */
+    }
+    .secondary-nav a {
+        font-size: 1rem;
+        padding: 5px 0;
+        white-space: nowrap; /* Asegura que el texto del enlace no se rompa */
+    }
+}
+
+/* Para pantallas muy pequeñas (hasta 480px) */
+@media (max-width: 480px) {
+    .secondary-nav a {
+        font-size: 0.85rem;
+    }
+    .nav_margin {
+        gap: 8px; /* Espacio más pequeño para pantallas muy estrechas */
+    }
+}

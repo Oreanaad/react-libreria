@@ -1,0 +1,113 @@
+.pago-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative;
+  min-height: 80px;
+}
+
+
+.pago-image-container {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.pago-image {
+  width: 140px;
+  height: 140px;
+  /* ADD THESE LINES TO REMOVE THE BORDER */
+  border: none !important; /* This will remove any border */
+  border-radius: 0 !important; /* This will remove any circular shape */
+  /* You might also need to check for box-shadow if it's mimicking a border */
+  /* box-shadow: none !important; */
+}
+
+.pago-info {
+  padding: 10px 10px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pago-title {
+  font-size: 1em;
+  margin-bottom: 0;
+  margin-top: 0;
+  color: var(--secundario);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-weight: bold;
+  -webkit-box-orient: vertical;
+}
+
+.pago-description {
+  font-size: 0.8em;
+  color: #666;
+  margin-bottom: 3px;
+  min-height: 1em;
+  font-style: italic;
+  text-overflow: ellipsis;
+}
+
+.pago-description-new {
+  font-size: 0.8em;
+  color: var(--secundario);
+  margin-bottom: 3px;
+  min-height: 1.1em;
+  font-style: bold;
+}
+
+
+
+@media (max-width: 992px) {
+  /* This rule should likely apply to the *container* of .pago-card elements, not .pago-card itself */
+  /* Example: If you have a .pago-cards-grid-container */
+   .pago-cards-grid-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 15px;
+  } 
+}
+
+@media (max-width: 768px) {
+  /* This rule should likely apply to the *container* of .pago-card elements */
+   .pago-cards-grid-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 15px;
+  } 
+}
+
+@media (max-width: 480px) {
+  /* This rule should likely apply to the *container* of .pago-card elements */
+  .pago-cards-grid-container {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 10px;
+  } 
+}
+
+.loading-message,
+.error-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #fff;
+  margin-top: 50px;
+}
+
+.error-message {
+  color: #d9534f;
+}
+

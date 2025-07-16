@@ -1,0 +1,196 @@
+
+.wishlist-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    display: flex;
+    justify-content: flex-end; /* Alinea el panel a la derecha */
+    /* Animación de entrada/salida para el overlay */
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+
+.wishlist-sidebar-content {
+    background-color: var(--wishlistBG); /* Color de fondo similar al de tu imagen */
+    width: 350px; /* Ancho del panel */
+    max-width: 90%; /* Asegura que no sea demasiado ancho en móviles */
+    height: 100%; /* Ocupa toda la altura */
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* Sombra a la izquierda */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Para el botón de cerrar en la esquina */
+    transform: translateX(0); /* Posición final (visible) */
+    transition: transform 0.3s ease-out; /* Animación de entrada/salida */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.2); /* Línea punteada bajo el título */
+    margin-bottom: 15px;
+}
+
+.sidebar-header h2 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #333;
+    font-weight: normal; /* A menudo los headers de modals son normales, no negritas */
+}
+
+.close-sidebar-button {
+    background: none;
+    border: none;
+    font-size: 2em; /* Tamaño grande para la 'X' */
+    line-height: 1;
+    color: #333; /* Color oscuro */
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-sidebar-button:hover {
+    color: var(--secundario); /* Rojo al pasar el ratón */
+}
+
+/* --- Contenedor de items de la wishlist --- */
+.wishlist-items-container {
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding-right: 5px;
+}
+
+.wishlist-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1); /* Línea punteada entre items */
+}
+
+.wishlist-item:last-child {
+    border-bottom: none; /* No hay línea en el último item */
+}
+
+.item-image-wrapper {
+    flex-shrink: 0; /* No permite que la imagen se encoja */
+    width: 60px; /* Tamaño de la imagen */
+    height: 80px;
+    margin-right: 15px;
+    background-color: #f0f0f0; /* Fondo para imágenes sin cargar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+.item-details {
+    flex-grow: 1; /* Ocupa el espacio restante */
+}
+
+.item-details h3 {
+    margin: 0;
+    font-size: 1em;
+    color: #333;
+    line-height: 1.3;
+}
+
+.item-details p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.remove-item-button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #888; /* Color gris suave */
+    cursor: pointer;
+    margin-left: 10px;
+    align-self: flex-start; /* Alinea la 'X' arriba en la fila del item */
+    line-height: 1;
+    padding: 0 5px;
+}
+
+.remove-item-button:hover {
+    color: var(--primario); /* Rojo al pasar el ratón */
+}
+
+/* --- Subtotal --- */
+.wishlist-subtotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 15px 0;
+    border-top: 1px dashed rgba(0, 0, 0, 0.2);
+    margin-top: 15px;
+    color: #333;
+}
+
+/* --- Botones de acción --- */
+.sidebar-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px;
+}
+
+.sidebar-actions .button {
+    display: block; /* Para que ocupen todo el ancho */
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Para los Links */
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-actions .view-wishlist-button {
+    background-color: var(--primario); /* Similar al botón "Ver carrito" de tu imagen */
+    color: white;
+}
+
+.sidebar-actions .view-wishlist-button:hover {
+    background-color: #a0907d;
+}
+
+.sidebar-actions .checkout-button {
+    background-color: #6a6a6a; /* Similar al botón "Finalizar compra" */
+    color: white;
+}
+
+.sidebar-actions .checkout-button:hover {
+    background-color: #555;
+}
+
+/* --- Mensaje de lista vacía --- */
+.empty-wishlist-message {
+    text-align: center;
+    margin: 50px 0;
+    color: #555;
+    font-style: italic;
+}
+
+/* --- Media Queries para pantallas más pequeñas --- */
+@media (max-width: 480px) {
+    .wishlist-sidebar-content {
+        width: 100%; /* Ocupa todo el ancho en móviles muy pequeños */
+        padding: 15px;
+    }
+}

@@ -1,0 +1,85 @@
+/* Estilos base para la grilla de autores (para pantallas grandes) */
+.author-list-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+
+@media (max-width: 992px) { /* Añadimos un breakpoint aquí para 4 o 3 columnas */
+    .author-list-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
+        gap: 25px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .author-list-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas de tablet/móvil grande */
+        gap: 20px;
+        padding: 15px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .author-list-grid {
+        grid-template-columns: 1fr; /* ¡Una sola columna en pantallas muy pequeñas! */
+        gap: 15px;
+        padding: 10px;
+    }
+}
+
+
+.loading-message,
+.error-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #fff; /* Asegúrate de que este color sea visible en tu fondo */
+  margin-top: 50px;
+}
+
+.error-message {
+  color: #d9534f;
+}
+
+
+@media (max-width: 768px) {
+  .section-header-container {
+    margin: 30px auto 20px auto;
+    padding: 0 15px;
+  }
+  .section-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
+    margin-right: 10px;
+  }
+  .section-title {
+    font-size: 1.3em;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header-container {
+    margin: 20px auto 15px auto;
+    padding: 0 10px;
+  }
+  .section-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9em;
+    margin-right: 8px;
+  }
+  .section-title {
+    font-size: 1.1em;
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,505 @@
+/* Contenedor principal de la página de detalles del libro (similar al anterior, solo para centrar) */
+.book-detail-page-wrapper {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra el contenido */
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - var(--header-height, 80px) - var(--footer-height, 100px));
+    box-sizing: border-box;
+}
+
+/* Contenedor principal del contenido (libro + reseñas) */
+/* Este es el contenedor flex que permite que el card del libro y el de reseñas estén lado a lado */
+.book-detail-main-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite envolver en pantallas pequeñas */
+    gap: 25px; /* --- AJUSTE: Espacio entre los cards un poco menor --- */
+    max-width: 1100px; /* --- AJUSTE: Ancho máximo total reducido --- */
+    width: 100%;
+    justify-content: center; /* Centra los cards horizontalmente */
+    margin-bottom: 30px; /* --- AJUSTE: Espacio antes de la sección del autor, si se mueve abajo --- */
+}
+
+/* Contenedor para el "card" del libro */
+.book-info-card {
+    flex: 2; /* Ocupa 2/3 del espacio disponible para el contenido principal */
+    min-width: 550px; /* --- AJUSTE: Ancho mínimo reducido para el card del libro --- */
+    max-width: 700px; /* --- AJUSTE: Ancho máximo reducido para el card del libro --- */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: var(--blur);
+    padding: 25px; /* --- AJUSTE: Padding reducido --- */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Apila la info principal y la sección del autor */
+    gap: 15px; /* --- AJUSTE: Espacio entre la info principal y el autor reducido --- */
+}
+
+/* Contenedor del contenido interno del card del libro (imagen + info) - Flex a nivel interno */
+.book-detail-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* --- AJUSTE: Espacio entre la imagen y la información un poco menor --- */
+    width: 100%; /* Asegura que ocupe todo el ancho de book-info-card */
+}
+
+/* Nuevo contenedor para la imagen, autor y rating */
+.book-image-and-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1; 
+    min-width: 250px; /* --- AJUSTE: Ancho mínimo de la columna de imagen --- */
+    max-width: 350px; /* --- AJUSTE: Ancho máximo de la columna de imagen --- */
+}
+
+.book-detail-image-wrapper {
+    height: 380px; /* --- AJUSTE: Altura de la imagen reducida --- */
+    aspect-ratio: 1 / 1;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 8px; 
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
+    padding: 15px; /* --- AJUSTE: Padding de la imagen reducido --- */
+    margin-bottom: 15px; /* --- AJUSTE: Margen debajo de la imagen reducido --- */
+    width: 100%;
+}
+
+.book-main-image-circular {
+    width: 100%;
+    height: 100%; 
+    object-fit: contain;
+    display: block; 
+}
+
+/* Contenedor de la información del libro */
+.book-detail-info {
+    flex: 2;
+    min-width: 300px; /* --- AJUSTE: Ancho mínimo de la columna de información --- */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* Título del libro */
+.book-detail-title {
+    font-size: 2.2em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #333;
+    margin-bottom: 8px; /* --- AJUSTE: Margen reducido --- */
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+/* Autor del libro */
+.book-detail-author {
+    font-size: 1.1em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #666;
+    margin-bottom: 12px; /* --- AJUSTE: Margen reducido --- */
+    font-style: italic;
+}
+
+/* Puntuación (estrellas) */
+.book-detail-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px; /* --- AJUSTE: Margen reducido --- */
+    color: #FFD700;
+}
+
+.book-detail-rating .star {
+    font-size: 1.2em; /* --- AJUSTE: Tamaño de estrella reducido --- */
+    margin-right: 1px; /* --- AJUSTE: Espacio entre estrellas reducido --- */
+}
+
+.book-detail-reviews {
+    font-size: 0.85em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #888;
+    margin-left: 6px; /* --- AJUSTE: Margen reducido --- */
+}
+
+.price-block {
+    display: flex;
+    flex-direction: row; /* --- CAMBIO: Ahora los elementos se alinearán en fila --- */
+    align-items: baseline; /* Alinea los elementos por su línea base de texto para que el precio principal destaque más */
+    width: 100%;
+    padding-top: 0px;
+    margin: 0px;
+    gap: 20px; 
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Alinea al inicio por defecto */
+}
+/* Precio del libro */
+.book-detail-price {
+    font-size: 2em; 
+    color: var(--secundario);
+    font-weight: 800;
+    margin: 0px; 
+    flex-shrink: 0; 
+}
+/* Precio anterior (tachado) */
+.book-detail-old-price {
+    font-size: 1em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #999;
+    margin-top: 5px;
+    margin-bottom: 4px; /* --- AJUSTE: Margen reducido --- */
+}
+
+.book-detail-old-price span {
+    text-decoration: line-through;
+}
+
+/* Porcentaje de descuento */
+.book-detail-discount {
+    font-size: 1em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #28a745;
+    font-weight: 600;
+    margin-bottom: 15px; /* --- AJUSTE: Margen reducido --- */
+}
+
+/* Descripción del libro (principal) */
+.book-detail-info > div > h2 {
+    font-size: 1.4em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #333;
+
+    font-weight: 600;
+}
+.book-detail-info > div {
+    font-size: 0.95em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #555;
+    line-height: 1.6;
+
+}
+
+/* Metadatos del libro (Año de Publicación) */
+.book-detail-meta {
+    font-size: 0.9em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #777;
+  margin-left: 3px;
+}
+
+.book-detail-meta strong {
+    color: #444;
+}
+
+/* Contenedor para agrupar los botones de acción */
+.book-actions-group {
+    display: flex;
+    gap: 12px; /* --- AJUSTE: Espacio entre botones reducido --- */
+
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Botón Añadir al Carrito */
+.add-to-cart-detail-button {
+    background-color: var(--primario);
+    color: white;
+    padding: 12px 25px; /* --- AJUSTE: Padding reducido --- */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-grow: 1;
+    max-width: 200px; /* --- AJUSTE: Ancho máximo reducido --- */
+    text-align: center;
+}
+
+.add-to-cart-detail-button:hover {
+    background-color: var(--sombra);
+    transform: translateY(-2px);
+}
+
+/* Botón de Wishlist (corazón) */
+.wishlist-button {
+    background-color: var(--primario);
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 45px; /* --- AJUSTE: Tamaño de botón reducido --- */
+    height: 45px; /* --- AJUSTE: Tamaño de botón reducido --- */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.wishlist-button:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+    transform: translateY(-2px);
+}
+
+.wishlist-button.added {
+    background-color: #ffe0e6;
+    border-color: #e63946;
+}
+
+.wishlist-button.added:hover {
+    background-color: #ffcce0;
+}
+
+.heart-icon {
+    font-size: 1.6em; /* --- AJUSTE: Tamaño de corazón reducido --- */
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.wishlist-button:hover .heart-icon {
+    transform: scale(1.1);
+}
+
+/* --- SECCIÓN DE RESEÑAS (CARD LATERAL) --- */
+.reviews-card {
+    flex: 1; /* Ocupa el espacio restante */
+    min-width: 350px; /* --- AJUSTE: Ancho mínimo reducido para el card de reseñas --- */
+    max-width: 450px; /* --- AJUSTE: Ancho máximo reducido para el card de reseñas --- */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: var(--blur);
+    padding: 25px; /* --- AJUSTE: Padding reducido --- */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* --- AJUSTE: Espacio entre elementos reducido --- */
+}
+
+.reviews-section-title {
+    font-size: 1.8em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #333;
+    margin-bottom: 12px; /* --- AJUSTE: Margen reducido --- */
+    font-weight: 700;
+    text-align: center;
+}
+
+.login-prompt-message {
+    text-align: center;
+    font-size: 1em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #777;
+    padding: 15px; /* --- AJUSTE: Padding reducido --- */
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+}
+
+/* --- SECCIÓN SOBRE EL AUTOR (DENTRO DEL BOOK-INFO-CARD) --- */
+.book-detail-description.author-section-container { 
+    position: relative;
+    padding-right: 180px; /* --- AJUSTE: Espacio para la imagen del autor reducido --- */
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px; /* --- AJUSTE: Margen superior reducido --- */
+    border-top: 1px solid #eee;
+    padding-top: 15px; /* --- AJUSTE: Padding superior reducido --- */
+}
+
+.author-section-container h2 {
+    font-size: 1.4em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #333;
+    margin-bottom: 8px; /* --- AJUSTE: Margen reducido --- */
+    font-weight: 600;
+}
+
+.book-detail-author-name {
+    font-size: 1em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 8px; /* --- AJUSTE: Margen reducido --- */
+}
+
+.author-section-container p {
+    font-size: 0.95em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px; /* --- AJUSTE: Margen reducido --- */
+}
+
+.author-image-circle {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 45px; /* --- AJUSTE: Margen superior ajustado --- */
+}
+
+/* Mensajes de carga y error generales */
+.book-detail-message {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.5em;
+    color: #555;
+    min-height: calc(100vh - var(--header-height, 80px) - var(--footer-height, 100px));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.book-detail-message.error {
+    color: #e63946;
+    font-weight: 600;
+}
+
+/* --- Media Queries para Responsividad --- */
+
+/* Para tabletas y pantallas más pequeñas (máx. 1024px) */
+@media (max-width: 1024px) {
+    .book-detail-main-content {
+        flex-direction: column; /* Apila el card del libro y el card de reseñas */
+        align-items: center; /* Centra los cards apilados */
+    }
+
+    .book-info-card,
+    .reviews-card {
+        max-width: 600px; /* --- AJUSTE: Ancho máximo para apilado --- */
+        min-width: unset;
+        width: 90%;
+        margin-bottom: 25px; /* --- AJUSTE: Espacio entre cards apilados --- */
+    }
+
+    .book-detail-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-image-and-meta {
+        max-width: 280px; /* --- AJUSTE: Tamaño de la imagen en tablet --- */
+    }
+
+    .book-detail-info {
+        min-width: unset;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-detail-title {
+        font-size: 1.8em; /* --- AJUSTE: Tamaño de fuente en tablet --- */
+    }
+
+    .book-detail-author {
+        font-size: 1em;
+    }
+
+    .book-detail-price {
+        font-size: 1.5em;
+    }
+
+    .add-to-cart-detail-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    /* Ajustes específicos para la sección del autor dentro del card en pantallas medianas */
+    .book-detail-description.author-section-container {
+        position: static;
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: 25px; /* --- AJUSTE: Margen superior --- */
+        padding-top: 15px; /* --- AJUSTE: Padding superior --- */
+        border-top: 1px solid #eee;
+    }
+
+    .author-image-circle {
+        position: static;
+        margin: 15px auto; /* --- AJUSTE: Margen e imagen centrada --- */
+        width: 130px; /* --- AJUSTE: Tamaño de la imagen del autor en tablet --- */
+        height: 130px;
+    }
+}
+
+/* Para móviles (máx. 768px) */
+@media (max-width: 768px) {
+    .book-detail-page-wrapper {
+        padding: 15px 8px; /* --- AJUSTE: Padding general reducido --- */
+    }
+
+    .book-info-card,
+    .reviews-card {
+        width: 98%; /* --- AJUSTE: Ocupa casi todo el ancho --- */
+        padding: 18px; /* --- AJUSTE: Padding reducido --- */
+    }
+
+    .book-detail-title {
+        font-size: 1.6em; /* --- AJUSTE: Tamaño de fuente en móvil --- */
+    }
+
+    .book-detail-price {
+        font-size: 1.3em;
+    }
+
+    .reviews-section-title {
+        font-size: 1.6em; /* --- AJUSTE: Tamaño de fuente en móvil --- */
+    }
+
+    .add-to-cart-detail-button {
+        width: 100%;
+        max-width: unset;
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .wishlist-button {
+        width: 38px; /* --- AJUSTE: Tamaño de botón en móvil --- */
+        height: 38px;
+    }
+
+    .heart-icon {
+        font-size: 1.3em; /* --- AJUSTE: Tamaño de corazón en móvil --- */
+    }
+}
+
+/* Para móviles muy pequeños (máx. 480px) */
+@media (max-width: 480px) {
+    .book-detail-title {
+        font-size: 1.4em;
+    }
+
+    .book-detail-price {
+        font-size: 1.2em;
+    }
+
+    .reviews-section-title {
+        font-size: 1.4em;
+    }
+
+    .book-actions-group {
+        flex-direction: column;
+        gap: 8px; /* --- AJUSTE: Espacio entre botones reducido --- */
+    }
+
+    .wishlist-button {
+        width: 100%;
+        border-radius: 8px;
+        height: auto;
+        padding: 6px 0; /* --- AJUSTE: Padding vertical reducido --- */
+    }
+    .wishlist-button .heart-icon {
+        margin-right: 4px; /* --- AJUSTE: Margen reducido --- */
+    }
+    .wishlist-button::after {
+        content: "Añadir a Wishlist";
+        font-size: 0.85em; /* --- AJUSTE: Tamaño de fuente reducido --- */
+        margin-left: 6px; /* --- AJUSTE: Margen reducido --- */
+        color: #555;
+    }
+    .wishlist-button.added::after {
+        content: "En Wishlist";
+        color: #e63946;
+    }
+}

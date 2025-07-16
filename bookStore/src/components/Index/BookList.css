@@ -1,0 +1,145 @@
+/* Estilos base para la grilla de libros (para pantallas grandes) */
+.book-list-grid {
+    display: grid;
+    /* En pantallas muy grandes (más de 1200px), 5 columnas está bien.
+       Si tus tarjetas de libro son grandes, considera 4 columnas como base aquí. */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Ajustes Responsivos --- */
+
+/* Para pantallas medianas (ej. laptops pequeños, tablets grandes en horizontal) */
+/* Desde 993px hasta 1200px (si tu max-width es 1200px) */
+@media (max-width: 1200px) { /* Este breakpoint es para ajustarse a tu max-width */
+    .book-list-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+        gap: 25px;
+        padding: 20px;
+    }
+}
+
+/* Para pantallas de tabletas grandes (vertical) y laptops muy pequeños */
+/* Desde 769px hasta 992px */
+@media (max-width: 992px) {
+    .book-list-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+        gap: 25px;
+        padding: 15px;
+    }
+}
+
+/* Para pantallas de tabletas pequeñas (vertical) y móviles grandes */
+/* Desde 481px hasta 768px */
+@media (max-width: 768px) {
+    .book-list-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        gap: 20px;
+        padding: 15px;
+    }
+}
+
+/* Para pantallas muy pequeñas (teléfonos móviles) */
+/* Hasta 480px (o menos, como tu media query ya indica) */
+@media (max-width: 480px) {
+    .book-list-grid {
+        grid-template-columns: 1fr; /* ¡Una sola columna en pantallas muy pequeñas! */
+        gap: 15px;
+        padding: 10px;
+    }
+}
+
+/* --- El resto de tu CSS (loading, error, section-header, etc.) queda como está --- */
+
+.loading-message,
+.error-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #fff;
+  margin-top: 50px;
+}
+
+.error-message {
+  color: #d9534f;
+}
+
+
+.section-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 30px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.section-icon {
+  background-color: var(--primario);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-size: 1.7em;
+  color: var(--primario);
+  margin: 0;
+  margin-right: 15px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.section-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--primario);
+}
+
+/* Media Queries para pantallas más pequeñas si es necesario */
+@media (max-width: 768px) {
+  .section-header-container {
+    margin: 30px auto 20px auto;
+    padding: 0 15px;
+  }
+  .section-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
+    margin-right: 10px;
+  }
+  .section-title {
+    font-size: 1.3em;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header-container {
+    margin: 20px auto 15px auto;
+    padding: 0 10px;
+  }
+  .section-icon {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9em;
+    margin-right: 8px;
+  }
+  .section-title {
+    font-size: 1.1em;
+    margin-right: 8px;
+  }
+}

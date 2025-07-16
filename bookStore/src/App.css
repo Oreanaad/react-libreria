@@ -1,0 +1,122 @@
+/* En src/App.css */
+:root {
+  --primario: #c59870;
+  --secundario: #b17952;
+  --sombra: #9c4b13;
+  --claro: #fff;
+  --blur: 2px 8px 16px rgba(193, 148, 109, 0.8);
+  --wishlistBG: #e6dfd3;
+  --cartBG:#e6e1d3;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Blanco */
+  color: #333;
+}
+
+html, body, #root { /* #root es el ID del div donde React monta tu aplicación */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el contenedor App tenga al menos la altura del viewport */
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* Fondo blanco para la aplicación */
+  padding: 0; 
+  padding-bottom: 100px; /* Valor de ejemplo, ajústalo según la altura de tu footer */
+}
+
+.p {
+  margin: 0;
+}
+
+/* Bloque para tu footer fijo */
+.main-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px; /* Padding que contribuye a la altura del footer */
+  background-color: var(--secundario); /* Color rosa de tu footer */
+  width: 100%; /* Ocupa todo el ancho */
+  box-sizing: border-box; /* Incluye padding y border en el width/height total */
+  
+  /* PROPIEDADES DE POSICIONAMIENTO FIJO */
+ /* position: fixed; /* Fija el elemento al viewport */
+  bottom: 0;       /* Lo pega a la parte inferior */
+  left: 0;
+  right: 0;
+  z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra superior */
+}
+
+.footer-content-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.p-content {
+  margin: 0;
+}
+
+.links {
+  gap: 20px;
+  padding: 10px;
+}
+
+/* --- Estilos de otras secciones --- */
+
+.App-header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.main-content {
+  display: flex;
+  flex: 1; /* Esto hace que main-content ocupe todo el espacio disponible */
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0; /* Evita que la sidebar se encoja */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #555;
+}
+
+.sidebar li:last-child {
+  border-bottom: none;
+}
+
+.sidebar li:hover {
+  background-color: #555;
+}
+
+.content-area {
+  flex: 1; /* Hace que el área de contenido ocupe el espacio restante */
+  padding: 20px;
+  background-color: #fff;
+}

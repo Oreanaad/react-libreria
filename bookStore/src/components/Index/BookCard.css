@@ -1,0 +1,487 @@
+.book-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative;
+  min-height: 100px; /* Reducido para hacer las tarjetas más pequeñas */
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 8px; /* Ajuste de posición */
+  left: 8px; /* Ajuste de posición */
+  background-color: #e74c3c;
+  color: white;
+  padding: 4px 7px; /* Más pequeño */
+  border-radius: 50%;
+  font-size: 0.75em; /* Tamaño de fuente más pequeño */
+  font-weight: bold;
+  z-index: 2;
+  min-width: 28px; /* Tamaño más pequeño */
+  height: 28px; /* Tamaño más pequeño */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-badge {
+  position: absolute;
+  top: 8px; /* Ajuste de posición */
+  right: 8px; /* Ajuste de posición */
+  background-color: #27ae60;
+  color: white;
+  padding: 4px 7px; /* Más pequeño */
+  border-radius: 50%;
+  font-size: 0.75em; /* Tamaño de fuente más pequeño */
+  font-weight: bold;
+  z-index: 2;
+  min-width: 28px; /* Tamaño más pequeño */
+  height: 28px; /* Tamaño más pequeño */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-image-container {
+  width: 100%;
+  height: 220px; /* Reducida la altura de la imagen */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin-top: 10px;
+}
+
+.book-info {
+  padding: 10px 10px; /* Padding reducido */
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.book-title {
+  font-size: 1em; /* Más pequeño */
+  margin-bottom: 0; /* Margen reducido */
+  margin-top: 0;
+  color: var(--secundario);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-weight: bold;
+  -webkit-box-orient: vertical;
+}
+
+.book-description {
+  font-size: 0.8em; /* Más pequeño */
+  color: #666;
+  margin-bottom: 3px; /* Margen reducido */
+  min-height: 1.1em; /* Ajuste de altura mínima */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.book-author {
+  font-size: 0.75em; /* Más pequeño */
+  color: #888;
+  margin-bottom: 0; /* Margen reducido */
+  margin-top: 0;
+}
+
+.book-rating {
+  margin-top: 3px; /* Margen reducido */
+  margin-bottom: 8px; /* Margen reducido */
+  color: #f39c12;
+  font-size: 0.9em; /* Más pequeño */
+}
+
+.star {
+  margin-right: 1px; /* Margen reducido */
+}
+
+.price-container {
+  display: flex;
+  align-items: baseline;
+  margin-top: 0;
+  padding-top: 0px; /* Padding reducido */
+  margin-bottom: 0;
+}
+.book-price-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em; /* Más pequeño */
+  color: #333;
+  margin: 0;
+}
+
+.old-price {
+  font-size: 0.8em; /* Más pequeño */
+  color: #999;
+  text-decoration: line-through;
+  margin-right: 6px; /* Margen reducido */
+}
+
+.current-price {
+  font-size: 1.1em; /* Más pequeño */
+  font-weight: bold;
+  color: #e67e22;
+}
+
+.book-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px; /* Padding reducido */
+
+  background-color: #fff;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px; /* Padding reducido */
+  border-radius: 15px; /* Menos redondeado */
+  font-size: 0.8em; /* Más pequeño */
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.button .icon {
+  margin-right: 4px; /* Menor margen para íconos */
+  font-size: 0.9em; /* Ícono un poco más pequeño */
+}
+
+.details-button {
+  background-color: var(--secundario);
+  color: white;
+  border-color: var(--secundario);
+  flex-grow: 1;
+  margin-right: 6px; /* Espacio reducido */
+}
+
+.details-button:hover {
+  background-color: var(--sombra);
+  border-color: var(--secundario);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.add-to-cart-button {
+  background-color:  var(--primario);
+  color: white;
+  border-color:  var(--primario);
+    flex-grow: 1;
+    height: 33px;
+  margin-right: 6px; /* Espacio reducido */
+}
+
+.add-to-cart-button:hover {
+  background-color: var(--secundario);
+  transform: translateY(-1px);
+    border-color: var(--secundario);
+}
+
+.favorite-button {
+  background-color: #f0f0f0;
+  color: #d33;
+  border-color: #ddd;
+  padding: 6px; /* Padding reducido */
+  flex-shrink: 0;
+}
+
+.favorite-button .icon {
+  margin-right: 0;
+}
+
+.favorite-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+/* --- Estilos para el Rating (Estrellas) --- */
+.book-rating {
+    margin-top: 3px;
+    margin-bottom: 8px; 
+    color: #f39c12; /* Color base dorado para las estrellas */
+    font-size: 1em; 
+    white-space: nowrap;
+}
+
+.star {
+    display: inline-block; 
+    margin-right: 1px;
+    font-size: 1.2em; 
+    line-height: 1; 
+    color: #ccc;
+}
+
+/* Estilos para estrellas completas */
+.star.full-star {
+    color: #f39c12; /* Color dorado para las estrellas llenas */
+}
+
+/* --- ESTILOS PARA MEDIA ESTRELLA (CORREGIDO) --- */
+.star.half-star {
+    position: relative; /* CRÍTICO: Para posicionar el pseudo-elemento */
+    /* El color base de .star es #ccc, así que esta ya es una estrella "vacía" */
+}
+
+.star.half-star::before {
+    content: '★'; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; 
+    overflow: hidden;
+    color: #f39c12; 
+}
+
+.TitleTienda{
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+  color: var(--primario);
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+
+}
+.pagination-controls {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los controles */
+    align-items: center;
+    gap: 8px; /* Reducido el espacio entre botones */
+    margin-top: 20px;
+    padding: 10px 0;
+    width: 100%; /* CRÍTICO: Asegura que ocupe todo el ancho para centrar */
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+.pagination-button {
+    background-color: #eee;
+    color: var(--primario);
+    border: 1px solid var(--primario);
+    padding: 6px 10px; /* Reducido el padding para hacer los botones más pequeños */
+    border-radius: 0; /* ¡CLAVE! Hace los botones cuadrados */
+    cursor: pointer;
+    font-size: 0.9em; /* Reducido el tamaño de la fuente de los botones */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    min-width: 32px; /* Asegura un ancho mínimo para botones de número */
+    height: 32px; /* Asegura una altura fija para botones de número */
+    display: flex; /* Para centrar el número/texto si el padding no es simétrico */
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color: var(--primario);
+    color: white;
+    transform: translateY(-1px);
+     border: 1px solid var(--primario);
+}
+
+.pagination-button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    border-color: #ddd;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.pagination-button.active {
+    background-color: var(--primario);
+    color: white;
+    border-color: var(--primario);
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.pagination-controls span {
+    font-size: 0.9em; /* Reducido el tamaño de la fuente del texto de paginación */
+    color: var(--texto-oscuro);
+    font-weight: bold;
+    white-space: nowrap; /* Evita que el texto de página se rompa */
+}
+
+
+@media (max-width: 768px) {
+    /* Ajustes para filters-container si no los tenías antes, para que centren y tengan gap */
+    .filters-container {
+        gap: 10px;
+        padding: 10px;
+        /* display: flex; /* Asegúrate de que tenga display:flex */
+        /* justify-content: center; */
+        /* flex-wrap: wrap; */
+    }
+    .filter-input, .filter-select {
+        max-width: 100%; /* Ocupar todo el ancho disponible */
+    }
+    /* Estilos de books-grid en media query 768px */
+    /* .books-grid { ... } */
+    
+    .pagination-controls {
+        gap: 6px; /* Reducido aún más el espacio */
+        flex-wrap: wrap; /* Permite que los botones se envuelvan si hay muchos */
+    }
+    .pagination-button {
+        padding: 6px 10px;
+        font-size: 0.85em; /* Ajuste para móvil */
+        min-width: 30px;
+        height: 30px;
+    }
+    .pagination-controls span {
+        font-size: 0.85em;
+    }
+}
+@media (max-width: 480px) {
+    /* Ajustes para filters-container si no los tenías antes, para que apilen */
+    .filters-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .filter-input, .filter-select {
+        max-width: 90%;
+    }
+    /* Estilos de books-grid en media query 480px */
+    /* .books-grid { ... } */
+
+    .pagination-controls {
+        gap: 4px; /* Más pequeño para pantallas muy estrechas */
+    }
+    .pagination-button {
+        padding: 5px 8px;
+        font-size: 0.8em;
+        min-width: 28px;
+        height: 28px;
+    }
+    .pagination-controls span {
+        font-size: 0.8em;
+    }
+}
+/* src/components/Tienda/BooksTienda.css */
+
+/* ... (Tus estilos anteriores del contenedor principal, h1, loading/error messages) ... */
+
+/* --- Estilos para los Filtros (AJUSTADOS PARA BOTONES) --- */
+.filters-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan */
+    justify-content: center; /* Centra los filtros */
+    gap: 15px; /* Espacio entre las filas de botones y entre los botones mismos */
+    margin-bottom: 25px; /* Espacio debajo de los filtros */
+
+
+}
+
+.filters-container ul {
+    display: flex; /* Habilita flexbox para la lista de botones */
+    flex-wrap: wrap; /* Permite que los botones dentro de la lista se envuelvan */
+    justify-content: center; /* Centra los botones dentro del <ul> */
+    list-style: none; /* Elimina las viñetas por defecto del <ul> */
+    margin: 0; /* Elimina márgenes por defecto del <ul> */
+    padding: 0; /* Elimina paddings por defecto del <ul> */
+    gap: 12px; /* Espacio entre los botones individuales */
+}
+
+.filters-container button {
+    background-color: #fff; /* Fondo blanco para los botones normales */
+    color: #888; /* Color de texto principal */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 25px; /* ¡CLAVE! Botones tipo píldora */
+    padding: 10px 18px; /* Padding generoso para el texto del botón */
+    font-size: 0.95em; /* Tamaño de fuente */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+
+}
+
+/* Estilo al pasar el ratón por encima (hover) */
+.filters-container button:hover{
+    background-color: var(--primario); /* Fondo primario al pasar el ratón */
+    color: white; /* Texto blanco */
+    border-color: var(--primario); /* Borde primario */
+    transform: translateY(-2px); /* Pequeño efecto de levantamiento */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Sombra sutil */
+}
+
+/* Estilo para el botón activo (la categoría seleccionada) */
+.filters-container button.active {
+    background-color: var(--primario); /* Fondo primario para el activo */
+    color: white; /* Texto blanco */
+    border-color: var(--primario); /* Borde primario */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.25); /* Sombra más pronunciada para el activo */
+    pointer-events: none; /* Opcional: Deshabilita clics en el botón activo */
+}
+
+
+/* --- (El resto de tu CSS para la cuadrícula de libros, paginación, y media queries) --- */
+
+/* Media Queries para Responsividad de Filtros y Paginación (AJUSTADAS PARA BOTONES) */
+@media (max-width: 768px) {
+    .filters-container {
+        gap: 10px;
+        padding: 15px; /* Padding interior */
+    }
+    .filters-container ul {
+        gap: 8px; /* Espacio entre botones en móvil */
+    }
+    .filters-container button {
+        padding: 8px 14px; /* Menor padding en móvil */
+        font-size: 0.9em;
+    }
+    /* ... (resto de las media queries para books-grid y pagination-controls) ... */
+}
+@media (max-width: 480px) {
+    .filters-container {
+        flex-direction: column; /* Apilar el contenedor principal si solo hay un ul */
+        align-items: center;
+        padding: 10px;
+    }
+    .filters-container ul {
+        flex-direction: row; /* Mantener los botones en fila si es posible */
+        flex-wrap: wrap; /* Permitir que los botones se envuelvan */
+        justify-content: center;
+        gap: 6px; /* Espacio aún más reducido */
+    }
+    .filters-container button {
+        padding: 6px 10px;
+        font-size: 0.85em;
+    }
+    /* ... (resto de las media queries para books-grid y pagination-controls) ... */
+}
+
+
+.section-line-tienda{
+  flex-grow: 1;
+  height: 3px;
+  background-color: var(--primario);
+}

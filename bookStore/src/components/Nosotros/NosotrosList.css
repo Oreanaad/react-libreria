@@ -1,0 +1,431 @@
+.List-container{ 
+   display: flex; 
+  align-items: center; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 40px auto 30px auto; 
+  padding: 0 20px; 
+  box-sizing: border-box; 
+} 
+
+
+.List-container-2 { 
+    display: flex; 
+    align-items: center; 
+    flex-direction: row; 
+    justify-content: flex-start; /* Ojo: Si quieres que el texto y la imagen estén centrados, esta propiedad debería ser 'center' o 'space-around' */ 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 40px auto 30px auto; 
+    padding: 0 20px; /* Mantén el padding para el contenido interno */ 
+    box-sizing: border-box; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 8px 16px rgba(246, 121, 171, 0.298); 
+    overflow: hidden; 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+    position: relative; 
+    min-height: 100px; 
+
+    /* --- ¡NUEVO: PROPIEDADES PARA EL BORDE! --- */ 
+    border: 10px solid var(--primario) /* Borde sólido de 2px con un color rosa/magenta que complementa la sombra */ 
+    /* Puedes ajustar el color si #f679ab no es el exacto que quieres. 
+       Podrías usar el mismo color de la sombra: #f679ab */ 
+} 
+
+.List-container-2 p { 
+    flex: 2; /* Le da más peso al párrafo */ 
+    max-width: 100%; /* Ancho máximo para el párrafo en escritorio */ 
+    min-width: 350px; /* Ancho mínimo antes de que el flexbox lo reajuste */ 
+    padding: 30px; 
+    text-align: justify; 
+
+    font-family: 'Lora', Georgia, serif; 
+    font-size: 1.15em; 
+    line-height: 1.8; 
+    color: #444; 
+    margin-right: 10px; /* Reinicia márgenes por defecto */ 
+    box-sizing: border-box; 
+} 
+
+.List-container span{ 
+    color: var(--primario); 
+} 
+
+/* --- Estilo de la Imagen --- */ 
+.List-container-2 img { 
+    max-width: 450px; 
+    height: auto; 
+    margin-top: 10px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    object-fit: cover; 
+    flex-shrink: 0; 
+} 
+
+
+.section-nosotros-container { 
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+  width: 100%; 
+  max-width: 1200px; 
+  margin: 40px auto 30px auto; 
+  padding: 0 20px; 
+  box-sizing: border-box; 
+} 
+
+.section-icon-nosotros { 
+  background-color: var(--primario); 
+  color: white; 
+  border-radius: 50%; 
+  width: 40px; 
+  height: 40px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-weight: bold; 
+  font-size: 2em; 
+  margin-right: 15px; 
+  flex-shrink: 0; 
+} 
+
+.section-title-nosotros { 
+  font-size: 3em; 
+  color: #000 
+; 
+  margin: 0; 
+  margin-right: 15px; 
+  white-space: nowrap; 
+  flex-shrink: 0; 
+} 
+
+.section-line-nosotros { 
+  flex-grow: 1; 
+  height: 2px; 
+  gap: 10px; 
+  background-color: var(--primario); 
+} 
+
+.List-container-pickup{ 
+   display: flex; 
+  align-items: center; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  width: 100%; 
+  max-width: 900px; 
+  margin: 0px auto 30px auto; 
+  padding: 0 20px; 
+  box-sizing: border-box; 
+} 
+
+
+.List-container-2-pickup { 
+    display: flex; 
+    align-items: center; 
+    flex-direction: row; 
+    justify-content: flex-start; 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 40px auto 30px auto; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 8px 16px rgba(246, 121, 171, 0.298); 
+    overflow: hidden; 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+    position: relative; 
+    min-height: 100px; 
+    border: 10px solid var(--primario) 
+} 
+
+.List-container-2-pickup ul { 
+    flex: 2; /* Le da más peso al párrafo */ 
+    max-width: 100%; /* Ancho máximo para el párrafo en escritorio */ 
+    min-width: 350px; /* Ancho mínimo antes de que el flexbox lo reajuste */ 
+    padding: 40px; 
+    text-align: justify; 
+
+    font-family: 'Lora', Georgia, serif; 
+    font-size: 1.15em; 
+    line-height: 1.8; 
+    color: #444; 
+    
+    box-sizing: border-box; 
+} 
+
+/* --- Estilo de la Imagen --- */ 
+.List-container-2-pickup img { 
+    max-width: 300px; 
+    height: auto; 
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    object-fit: cover; 
+    flex-shrink: 0; 
+} 
+
+/* Small devices (phones, 600px and down) */ 
+@media only screen and (max-width: 600px) { 
+  .List-container { 
+    padding: 0 15px; 
+    margin: 20px auto; 
+  } 
+
+  .List-container-2 { 
+    flex-direction: column; /* Stack image and text vertically */ 
+    text-align: center; 
+    padding: 15px; 
+    border: 5px solid var(--primario); 
+  } 
+
+  .List-container-2 p { 
+    min-width: unset; 
+    padding: 20px; 
+    margin-right: 0; 
+    text-align: left; 
+  } 
+
+  .List-container-2 img { 
+    max-width: 90%; 
+    margin-top: 15px; 
+    margin-bottom: 10px; 
+  } 
+
+  .section-nosotros-container { 
+    flex-direction: column; /* Stack icon, title, and lines vertically */ 
+    align-items: center; /* Center items horizontally */ 
+    padding: 0 15px; 
+    margin: 20px auto; 
+  } 
+
+  /* Hide lines on small screens if they don't fit well when stacked */ 
+  .section-nosotros-container .section-line-nosotros { 
+    display: none; 
+  } 
+
+  .section-icon-nosotros { 
+    width: 50px; /* Make the icon a bit bigger for prominence */ 
+    height: 50px; 
+    font-size: 2.5em; /* Adjust font size */ 
+    margin-right: 0; /* Remove right margin */ 
+    margin-bottom: 15px; /* Add space below the icon */ 
+  } 
+
+  .section-title-nosotros { 
+    font-size: 2em; /* Adjusted for smaller screens */ 
+    margin: 0; /* Remove default margins */ 
+    text-align: center; /* Center the text */ 
+    white-space: normal; /* Allow text to wrap */ 
+    word-break: break-word; /* Ensure long words break */ 
+    padding: 0 10px; /* Add some horizontal padding */ 
+  } 
+
+  /* Adjust span color for consistency if needed, based on parent's color */ 
+  .section-title-nosotros span { 
+    color: var(--primario); /* Assuming this is desired */ 
+  } 
+ .List-container-pickup { 
+    padding: 0 15px; 
+    margin: 20px auto; 
+  } 
+
+  .List-container-2-pickup { 
+    flex-direction: column; /* Stack image and text vertically */ 
+    text-align: center; 
+    padding: 15px; 
+    border: 5px solid var(--primario); 
+  } 
+
+  .List-container-2-pickup img { 
+    max-width: 90%; 
+    margin-top: 15px; 
+    margin-bottom: 10px; 
+  } 
+} 
+
+/* Medium devices (tablets, 601px to 900px) */ 
+@media only screen and (min-width: 601px) and (max-width: 900px) { 
+  .List-container { 
+    padding: 0 20px; 
+    margin: 30px auto; 
+  } 
+
+  .List-container-2 { 
+    flex-direction: column; 
+    padding: 20px; 
+    border: 7px solid var(--primario); 
+  } 
+
+  .List-container-2 p { 
+    min-width: unset; 
+    padding: 25px; 
+    margin-right: 0; 
+    text-align: left; 
+  } 
+
+  .List-container-2 img { 
+    max-width: 70%; 
+    margin-top: 20px; 
+    margin-bottom: 15px; 
+  } 
+
+  .section-nosotros-container { 
+    flex-direction: row; /* Keep elements in a row */ 
+    align-items: center; /* Vertically align items */ 
+    justify-content: flex-start; /* Original justification */ 
+    padding: 0 20px; 
+    margin: 30px auto; 
+  } 
+
+  .section-nosotros-container .section-line-nosotros { 
+    flex-grow: 1; /* Lines take up available space */ 
+    height: 2px; 
+    background-color: var(--primario); 
+    /* Add a small margin to separate lines from content if needed */ 
+    margin: 0 10px; /* Adjust as needed for spacing between lines and content */ 
+  } 
+
+  .section-icon-nosotros { 
+    width: 40px; 
+    height: 40px; 
+    font-size: 2em; 
+    /* Removed margin-right as the line itself will provide spacing */ 
+    flex-shrink: 0; 
+  } 
+
+  .section-title-nosotros { 
+    font-size: 2.7em; 
+    margin: 0; /* Remove default margins */ 
+    white-space: normal; /* **ALLOWS TITLE TO BREAK INTO TWO LINES** */ 
+    word-break: break-word; 
+    flex-shrink: 1; /* Allow the title to shrink */ 
+  } 
+
+  .section-title-nosotros span { 
+    color: var(--primario); /* Assuming this is desired */ 
+  } 
+   .List-container-pickup { 
+    padding: 0 20px; 
+    margin: 30px auto; 
+  } 
+
+  .List-container-2-pickup{ 
+    flex-direction: column; 
+    padding: 20px; 
+    border: 7px solid var(--primario); 
+  } 
+
+
+  .List-container-2-pickup img { 
+    max-width: 70%; 
+    margin-top: 20px; 
+    margin-bottom: 15px; 
+  } 
+} 
+
+/* Large devices (desktops, 901px and up) - original styles apply */ 
+@media only screen and (min-width: 901px) { 
+  .List-container { 
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 40px auto 30px auto; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
+  } 
+
+  .List-container-2 { 
+    display: flex; 
+    align-items: center; 
+    flex-direction: row; 
+    justify-content: flex-start; 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 40px auto 30px auto; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 8px 16px rgba(246, 121, 171, 0.298); 
+    overflow: hidden; 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+    position: relative; 
+    min-height: 100px; 
+    border: 10px solid var(--primario); 
+  } 
+
+  .List-container-2 p { 
+    flex: 2; 
+    max-width: 100%; 
+    min-width: 350px; 
+    padding: 30px; 
+    text-align: justify; 
+    font-family: 'Lora', Georgia, serif; 
+    font-size: 1.15em; 
+    line-height: 1.8; 
+    color: #444; 
+    margin-right: 10px; 
+    box-sizing: border-box; 
+  } 
+
+  .List-container span { 
+    color: var(--primario); 
+  } 
+
+  .List-container-2 img { 
+    max-width: 450px; 
+    height: auto; 
+    margin-top: 10px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    object-fit: cover; 
+    flex-shrink: 0; 
+  } 
+
+  .section-nosotros-container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 40px auto 30px auto; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
+  } 
+
+  .section-nosotros-container .section-line-nosotros { 
+    flex-grow: 1; /* Lines take up available space */ 
+    height: 2px; 
+    background-color: var(--primario); 
+    margin: 0 15px; /* Spacing between lines and content */ 
+  } 
+
+  .section-icon-nosotros { 
+    background-color: var(--primario); 
+    color: white; 
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold; 
+    font-size: 2em; 
+    /* Removed margin-right as the line itself will provide spacing */ 
+    flex-shrink: 0; 
+  } 
+
+  .section-title-nosotros span { 
+    color: var(--primario); /* Apply primario color to the span */ 
+  } 
+}
+
+

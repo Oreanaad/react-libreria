@@ -1,0 +1,120 @@
+.author-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative;
+  min-height: 100px; /* Reducido para hacer las tarjetas más pequeñas */
+}
+
+.author-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 8px; /* Ajuste de posición */
+  left: 8px; /* Ajuste de posición */
+  background-color: #e74c3c;
+  color: white;
+  padding: 4px 7px; /* Más pequeño */
+  border-radius: 50%;
+  font-size: 0.75em; /* Tamaño de fuente más pequeño */
+  font-weight: bold;
+  z-index: 2;
+  min-width: 28px; /* Tamaño más pequeño */
+  height: 28px; /* Tamaño más pequeño */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-badge {
+  position: absolute;
+  top: 8px; /* Ajuste de posición */
+  right: 8px; /* Ajuste de posición */
+  background-color: #27ae60;
+  color: white;
+  padding: 4px 7px; /* Más pequeño */
+  border-radius: 50%;
+  font-size: 0.75em; /* Tamaño de fuente más pequeño */
+  font-weight: bold;
+  z-index: 2;
+  min-width: 28px; /* Tamaño más pequeño */
+  height: 28px; /* Tamaño más pequeño */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-image-container {
+  width: 100%;
+  height: 220px; /* Reducida la altura de la imagen */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 300px;
+  
+}
+
+.author-image {
+  width: 180px;
+  height: 180px;
+
+  object-fit: cover;
+
+    border-radius: 50%; 
+    display: block;
+    margin: 0 auto; 
+    border: 2px solid #ddd; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.author-info {
+  padding: 10px 10px; /* Padding reducido */
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.author-title {
+  font-size: 1em; /* Más pequeño */
+  margin-bottom: 0; /* Margen reducido */
+  margin-top: 0;
+  color: var(--secundario);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  font-weight: bold;
+  -webkit-box-orient: vertical;
+}
+
+.author-description {
+  font-size: 0.8em; /* Más pequeño */
+  color: #666;
+  margin-bottom: 3px; /* Margen reducido */
+  min-height: 1em; /* Ajuste de altura mínima */
+ font-style: italic;
+  text-overflow: ellipsis;
+}
+
+
+.author-description-new {
+  font-size: 0.8em; /* Más pequeño */
+  color: var(--secundario);
+  margin-bottom: 3px; /* Margen reducido */
+  min-height: 1.1em; /* Ajuste de altura mínima */
+ font-style: bold;
+  
+  
+  
+}
+
+

@@ -1,0 +1,339 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Define tus variables de color */
+:root {
+    --primary-text: #333;
+    --light-grey-bg: #f1eff0;
+    --border-color: #e0e0e0;
+    --accent-green: #2ecc71;
+    --button-bg: #333;
+    --button-hover: #555;
+    --error-red: #e74c3c;
+    --success-green: #27ae60;
+    --text-muted: #666;
+}
+
+/* --- Estilos Generales de la Sección --- */
+.contact-page-section {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-text);
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+/* --- Estilos del Encabezado Superior --- */
+.section-header-top {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.small-text-heading {
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 5px;
+    color: var(--text-muted);
+}
+
+.small-text-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 8px auto 0;
+}
+
+/* --- Estilos del Título Principal --- */
+.main-heading {
+    font-size: 3.2em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    line-height: 1.2;
+    color: var(--primary-text);
+}
+
+/* --- Estilos de los Bloques de Información de Contacto --- */
+.contact-info-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.info-block {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.info-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.info-label {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-text);
+    margin-bottom: 8px;
+}
+
+.info-value {
+    font-size: 1em;
+    color: var(--sombra);
+    line-height: 1.5;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.info-block a {
+    color: var(--secundario);
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.info-block a:hover {
+    text-decoration: underline;
+    color: var(--primary-text);
+}
+
+/* --- Estilos del Contenedor Principal del Formulario --- */
+.contact-form-wrapper {
+    background-color: var(--light-grey-bg);
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.03);
+}
+
+.contact-main-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+/* --- Estilos para las Filas de Campos --- */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+}
+
+/* --- Estilos para cada Grupo de Formulario --- */
+.form-group {
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: var(--primary-text);
+    margin-bottom: 8px;
+}
+
+/* --- Estilos Comunes para Inputs, Textareas y Selects --- */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="text"][name="subject"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-text);
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--secundario);
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+    cursor: pointer;
+}
+
+.form-group.full-width {
+    width: 100%;
+    flex-basis: 100%;
+}
+
+/* --- Estilos para Mensajes de Error y Feedback de Envío --- */
+.error-message {
+    color: var(--error-red);
+    font-size: 0.8em;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.input-error {
+    border-color: var(--error-red) !important;
+}
+
+.submission-feedback {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submission-feedback.success {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: var(--success-green);
+    border: 1px solid var(--success-green);
+}
+
+.submission-feedback.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--error-red);
+    border: 1px solid var(--error-red);
+}
+
+/* --- Estilo del Botón de Envío --- */
+.submit-button {
+    display: block;
+    width: auto;
+    padding: 12px 30px;
+    background-color: var(--primario);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.05em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- Ajustes Responsivos --- */
+@media (max-width: 1024px) {
+    .main-heading {
+        font-size: 2.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+    .contact-info-blocks {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    .info-block {
+        min-width: unset;
+    }
+    .contact-form-wrapper {
+        padding: 30px 25px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .form-group {
+        min-width: unset;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+    .submit-button {
+        font-size: 1em;
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-heading {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .contact-info-blocks {
+        
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8em;
+    }
+    .info-label {
+        font-size: 1em;
+    }
+    .info-value, .info-block a {
+        font-size: 0.9em;
+    }
+    .contact-form-wrapper {
+        padding: 30px 20px;
+    }
+}

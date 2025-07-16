@@ -1,0 +1,90 @@
+/* src/components/Slider.css */
+
+.slider-container {
+  position: relative;
+  width: 100vw; /* Ocupa el 100% del ancho del viewport */
+  max-width: 100vw; /* Asegura que no se exceda */
+  margin: 0; /* MUY IMPORTANTE: Elimina cualquier margen externo */
+  padding: 0; /* Elimina cualquier padding interno que cause espacio */
+  border-radius: 0; /* Si no quieres bordes redondeados */
+  box-shadow: none; /* Si no quieres sombra */
+  background-color: transparent; /* Si quieres fondo transparente */
+  overflow: hidden; /* Mantiene el contenido dentro de los límites */
+  display: flex; /* Para centrar la imagen dentro del contenedor */
+  align-items: center; /* Centra la imagen verticalmente */
+  justify-content: center; /* Centra la imagen horizontalmente */
+  /* min-height: 400px; /* ELIMINADO: Permitimos que la altura se adapte a la imagen */
+  height: auto; /* Asegura que el contenedor se adapte a la altura de su contenido */
+  box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho/alto */
+}
+
+.slider-image-wrapper {
+  width: 100%;
+  height: 100%; /* Asegura que el wrapper también ocupe el 100% de la altura del contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-image {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del wrapper */
+  height: 100%; /* Hace que la imagen ocupe el 100% de la altura del wrapper */
+  display: block;
+  object-fit: cover; /* MUY IMPORTANTE: Recorta la imagen para cubrir el contenedor sin distorsión */
+  /* max-height: 500px; /* ELIMINADO: Permitimos que la imagen determine su altura si es mayor que 100% */
+}
+
+.slider-navigation {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.slider-arrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+}
+
+.slider-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.dot.active {
+  background-color: var(--secundario);
+  transform: scale(1.2);
+}
