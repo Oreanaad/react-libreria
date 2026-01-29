@@ -37,7 +37,7 @@ function ListaReseñas({ bookId, refreshReviews }) {
   return (
     <div className="reviews-list-container">
       {reviews.map((review) => (
-        <SingleReview key={review.review_id} review={review} />
+        <SingleReview key={review.id} review={review} />
       ))}
     </div>
   );

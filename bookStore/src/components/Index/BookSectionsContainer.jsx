@@ -21,8 +21,9 @@ const BookSectionsContainer = () => {
     }
 
     //obtener libros de la api
-    const booksResponse = await axios.get(`${apiUrl}/api/libros`);
-    setBooks(booksResponse.data.books);
+  const booksResponse = await axios.get(`${apiUrl}/api/libros?limit=500`); // Por ejemplo, un límite de 500
+ setBooks(booksResponse.data.books);
+
 
     //Obtener autores de la api
     const authorsResponse = await axios.get(`${apiUrl}/api/authors`);

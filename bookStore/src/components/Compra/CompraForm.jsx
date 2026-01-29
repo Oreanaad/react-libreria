@@ -71,73 +71,57 @@ const CheckoutPage = () => {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError(null);
+ const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
+    // 1. Preparamos los datos del cliente primero
+    const customerData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        apartment: formData.apartment,
+        state: formData.state,
+        country: formData.country,
+        birthDate: formData.birthDate,
+        gender: formData.gender,
+        userId: isAuthenticated ? user.id : null // Opcional: Vincular cliente al usuario
+    };
+
+    try {
+        // 2. CREAR EL CLIENTE PRIMERO (en OrdersCustomersInfo)
+        // Debes tener una ruta en tu backend para esto, o manejarlo todo en la ruta de orders
+        const customerResponse = await axios.post(`${API_BASE_URL}/api/customers`, customerData);
+        const newCustomerId = customerResponse.data.id; // Obtenemos el ID real de la tabla OrdersCustomersInfo
+
+        // 3. AHORA CREAMOS LA ORDEN CON EL ID CORRECTO
         const orderData = {
-            customerInfo: formData,
+            totalPrice: cartTotalPrice,
+            userId: isAuthenticated ? user.id : null,
+            customerId: newCustomerId, // <--- USAMOS EL ID RECIÉN CREADO
+            status: 'Pendiente',
             products: cart.map(item => ({
                 productId: item.id,
                 title: item.title,
                 quantity: item.quantity,
                 price: item.price,
             })),
-            totalPrice: cartTotalPrice,
-            userId: isAuthenticated ? user.id : null,
         };
 
-        try {
-            // Paso 1: Enviar la orden a tu backend para guardar en la DB y enviar email
-            const dbResponse = await axios.post(`${API_BASE_URL}/api/orders`, orderData);
-            console.log('Orden guardada en DB y email enviado:', dbResponse.data);
-
-            // *******************************************************************
-            // Paso 2: Generar el enlace de WhatsApp LOCALMENTE en el frontend
-            // Esto ocurre DESPUÉS de que la orden se haya guardado con éxito.
-            // *******************************************************************
-            let generatedWhatsappLink = '';
-            if (formData.phone) {
-                // Limpiar y formatear el número de teléfono para WhatsApp
-                const cleanedPhone = formData.phone.replace(/\D/g, '');
-                // Añadir '58' si no está presente (asumiendo números de Venezuela)
-                const fullPhoneNumber = cleanedPhone.startsWith('58') ? cleanedPhone : `58${cleanedPhone}`;
-
-                // Construir un resumen de los productos en la orden
-                const productsSummary = cart.map(item => `${item.title} (x${item.quantity})`).join(', ');
-
-                // Crear el mensaje pre-llenado de WhatsApp
-                const whatsappMessage = encodeURIComponent(
-                    `¡Hola ${formData.firstName}! Tu pedido ha sido registrado con éxito. ` +
-                    `Detalles: ${productsSummary}. Total: €${cartTotalPrice.toFixed(2)}. ` +
-                    `Número de pedido: #${dbResponse.data.orderId || 'N/A'}. ` +
-                    `Por favor, confirma este mensaje para coordinar el pago y envío. ¡Gracias!`
-                );
-                generatedWhatsappLink = `https://wa.me/${fullPhoneNumber}?text=${whatsappMessage}`;
-                setWhatsappLink(generatedWhatsappLink); // Actualiza el estado (si lo necesitas en esta misma página)
-            }
-
-            setOrderSuccess(true);
-            clearCart(); // Limpia el carrito después de una compra exitosa
-
-            // Redirigir a la página de confirmación, pasando el ID de la orden
-            // y el enlace de WhatsApp generado localmente
-            navigate('/order-confirmation', {
-                state: {
-                    orderId: dbResponse.data.orderId,
-                    whatsappLink: generatedWhatsappLink // Pasamos el enlace
-                }
-            });
-
-        } catch (err) {
-            console.error('Error al procesar la orden:', err.response?.data || err.message);
-            setError(err.response?.data?.message || 'Hubo un error al procesar tu pedido. Intenta de nuevo.');
-        } finally {
-            setLoading(false);
-        }
-    };
-
+        const dbResponse = await axios.post(`${API_BASE_URL}/api/orders`, orderData);
+        
+        // ... resto de tu lógica de WhatsApp y navegación ...
+        
+    } catch (err) {
+        console.error('Error al procesar la orden:', err.response?.data || err.message);
+        setError(err.response?.data?.message || 'Error al procesar tu pedido.');
+    } finally {
+        setLoading(false);
+    }
+};
     // Esto se ejecutará si la compra fue exitosa y estamos en esta página
     // Nota: con la redirección, probablemente ya no se vea este estado en CheckoutPage,
     // pero es bueno tenerlo como fallback o si decides no redirigir inmediatamente.

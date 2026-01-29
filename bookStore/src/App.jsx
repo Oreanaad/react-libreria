@@ -21,6 +21,7 @@ import { CartProvider } from './context/CartContext.jsx';
 import CartDisplay from './components/Cart/CartSideBar.jsx'
 import FinalizarCompra from './pages/FinalizarCompra.jsx'
 import OrderConfirmationPage from './components/Compra/OrderConfirmation.jsx';
+import ResettPassword from './pages/ResetPassword.jsx';
 
 import { Toaster } from 'react-hot-toast';
 
@@ -69,6 +70,7 @@ return (
         <Route path="/resetPassword" element={<ForgotPassword/>}/>
         <Route path= '/finalizarCompra' element={<FinalizarCompra/>}></Route>
         <Route path="/order-confirmation" element = {<OrderConfirmationPage/>}></Route>
+        <Route path="/resettpassword/:token" element={<ResettPassword />} />
         <Route path="*" element={<h2>404: Página no encontrada</h2>} />
       </Routes>
       <Footer />

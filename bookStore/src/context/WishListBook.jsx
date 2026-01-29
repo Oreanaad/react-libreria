@@ -89,8 +89,8 @@ export const WishlistProvider = ({ children }) => {
             });
 
             if (response.status === 200) {
-                const fetchedWishlist = response.data;
-              //  console.log("fetchUserWishlistFromDB: Wishlist cargada de la DB:", fetchedWishlist);
+                const fetchedWishlist = Array.isArray(response.data.wishlist) ? response.data.wishlist : [];
+
                 setWishlist(fetchedWishlist);
             } else {
              //  console.error('fetchUserWishlistFromDB: Error al cargar la wishlist de la DB:', response.status, response.statusText);
@@ -195,7 +195,7 @@ export const WishlistProvider = ({ children }) => {
 
           //  console.log("synchronizeWishlist: Sincronización completada con éxito.");
         } catch (error) {
-           // console.error("synchronizeWishlist: Error durante la sincronización de wishlist:", error.response ? error.response.data : error.message);
+           console.error("synchronizeWishlist: Error durante la sincronización de wishlist:", error.response ? error.response.data : error.message);
             setError('Error durante la sincronización inicial de la wishlist.');
         }
     }, [user, token, API_BASE_URL, updateWishlistInDB]);

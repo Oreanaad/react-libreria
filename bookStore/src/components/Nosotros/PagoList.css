@@ -4,7 +4,7 @@
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     max-width: 1200px;
-    margin-left:400px ;
+    margin-left:200px ;
        gap: 30px; 
     padding: 20px; 
     
@@ -36,6 +36,7 @@
     .metodo-list-grid {
         grid-template-columns: 1fr; /* ¡Una sola columna en pantallas muy pequeñas! */
         gap: 15px;
+          margin-left:0px ;
         padding: 10px;
     }
 }

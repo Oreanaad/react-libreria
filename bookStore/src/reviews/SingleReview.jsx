@@ -4,9 +4,9 @@ import StarRating from './StarRating';
 import './SingleReview.css'; // Importa el archivo CSS
 
 function ReseñaIndividual({ review }) {
-  const { username, comment, rating, created_at } = review;
+  const { username, comment, rating, createdAt } = review;
 
-  const formattedDate = new Date(created_at).toLocaleDateString('es-ES', {
+  const formattedDate = new Date(createdAt).toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
